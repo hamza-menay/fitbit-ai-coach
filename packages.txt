@@ -1,0 +1,11 @@
+chromium
+chromium-driver
+libpango-1.0-0
+libpangoft2-1.0-0
+libharfbuzz0b
+libffi-dev
+libgdk-pixbuf2.0-0
+libxml2
+libxmlsec1-dev
+libcairo2
+shared-mime-info
