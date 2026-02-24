@@ -1,17 +1,17 @@
 # Fitbit AI Health Coach
 
-I built this because I was tired of the Fitbit app showing me daily averages when I wanted to see the actual data. Every heartbeat, every step, every sleep stage - second by second.
+This is a follow-up to [fitbit_analytics](https://github.com/hamza-menay/fitbit_analytics), which I built earlier. That version was in French and focused purely on visualization. This one adds AI coaching and switches to English.
 
-The dashboard runs on Streamlit. You upload your Fitbit Takeout export and get interactive charts you can zoom into. There's also an AI coach (optional, uses Google's Gemini) that looks at your data and answers questions about it.
+I built the first version because I was tired of the Fitbit app showing me daily averages when I wanted to see the actual data. Every heartbeat, every step, every sleep stage, second by second. This version keeps all of that and adds an AI coach that can look at your data and answer questions about it.
 
 ## What it does
 
-- **Continuous data visualization** - See every data point instead of daily summaries
-- **Multiple metrics** - Heart rate, sleep stages, SpO2, HRV, steps, stress scores
-- **Interactive charts** - Zoom, pan, explore with Plotly
-- **PDF reports** - Generate printable health reports
-- **AI coaching** - Ask questions about your data (requires Gemini API key)
-- **Local only** - Your data never leaves your machine
+- **Continuous data visualization**: See every data point instead of daily summaries
+- **Multiple metrics**: Heart rate, sleep stages, SpO2, HRV, steps, stress scores
+- **Interactive charts**: Zoom, pan, explore with Plotly
+- **PDF reports**: Generate printable health reports
+- **AI coaching**: Ask questions about your data (requires Gemini API key)
+- **Local only**: Your data never leaves your machine
 
 ## Quick start
 
@@ -34,13 +34,18 @@ The dashboard runs on Streamlit. You upload your Fitbit Takeout export and get i
    - Add your Gemini API key in the sidebar
    - Ask questions about your health patterns
 
+## What's new vs fitbit_analytics
+
+| Feature | fitbit_analytics | fitbit-ai-coach (this) |
+|---------|------------------|------------------------|
+| Language | French | English |
+| AI coaching | No | Yes (Gemini) |
+| PDF export | Yes | Yes |
+| Continuous charts | Yes | Yes |
+
 ## Why I made this
 
-The Fitbit app aggregates everything into daily summaries. I wanted to see:
-- Heart rate variability during specific activities
-- Sleep patterns across full time ranges
-- How different metrics correlate at specific moments
-- Raw data I could export for my own records
+The Fitbit app aggregates everything into daily summaries. I wanted to see heart rate variability during specific activities, sleep patterns across full time ranges, how different metrics correlate at specific moments, and raw data I could export for my own records.
 
 ## Privacy
 
