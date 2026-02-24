@@ -1488,10 +1488,12 @@ Here is the user's health data:
 
 Their goal: {goals}
 
+The entire plan -- the activities chosen, the type of training, the progression -- must be specific to their stated goal. If the goal is a marathon, build running endurance. If the goal is rock climbing, focus on grip strength, pulling strength, and body tension. If the goal is weight loss, focus on caloric burn and sustainable activity. Do not default to a generic running plan regardless of what the user asked for.
+
 Respond using these exact section headers in this order:
 
 ## Where they are right now
-Write 2-4 paragraphs. Be direct and specific about their current fitness level based on the numbers. What does the data actually show?
+Write 2-4 paragraphs. Be direct and specific about their current fitness level based on the numbers. What does the data actually show? Explain what their current fitness means in the context of their specific goal.
 
 ## 4-week plan
 
@@ -1519,10 +1521,19 @@ Output ONLY a JSON code block for this section (no prose before or after the blo
 }}}}
 ```
 
-Include all 4 weeks. Base session days on their existing activity patterns. Be specific with durations and effort levels.
+Include all 4 weeks. Be specific with durations and effort levels.
+
+IMPORTANT -- session count per week: Use the average sessions per week from their exercise history as your reference point, not their peak week. Apply this logic:
+- Zero or near-zero logged exercise: start with 2-3 sessions per week. Check their step count -- if they average over 10,000 steps/day they are not sedentary, just unstructured. Treat them accordingly, not as a complete beginner.
+- 1-2 sessions per week average: suggest 2-3 sessions per week. A small, sustainable step up.
+- 3-4 sessions per week average: keep 3-4 sessions per week. Do not inflate it.
+- 5+ sessions per week average: keep a similar volume, but if their HRV is declining or their resting HR is trending up, reduce by one session and add recovery instead.
+Do not jump more than 1 session per week above their recent average in Week 1, regardless of their goal. If the goal eventually requires more volume (e.g. marathon training), increase gradually across the 4 weeks, not from day one.
+
+IMPORTANT -- capability calibration: Do not default to a beginner template. Look at the actual session durations in the exercise history and use them as the baseline for Week 1. If they have been training for 40-50 minutes per session, do not prescribe 20-25 minute sessions. A gap of a few weeks does not reset someone to zero -- it means reducing intensity or effort, not duration. If the problem is that they have been training at too high an intensity, say so clearly and prescribe the same durations at a lower effort, not shorter sessions. This applies to any activity type, not just running.
 
 ## Heart rate targets
-1-2 paragraphs. Give actual bpm ranges using their resting HR. Explain which zone they should train in and why.
+1-2 paragraphs. Use their actual resting heart rate from the data to give real bpm numbers. Adapt this section to their goal: for endurance goals (running, cycling, swimming), explain aerobic zones and the specific range to target. For strength or skill-based goals (climbing, weightlifting, martial arts, yoga), explain how to use heart rate as a recovery and effort gauge rather than a training zone target -- in those cases the HR data is useful for spotting overtraining, not for pacing sessions.
 
 ## Sleep and recovery
 1-2 paragraphs. What does their sleep data say, and what specific changes would help?
